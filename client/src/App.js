@@ -4,7 +4,7 @@ import Landing from './views/Landing';
 import Countries from './components/Countries';
 import Details from './components/Details';
 import Activities from './components/Activities';
-import NabVar from './views/NabVar';
+
 
 function App() {
   return (

@@ -3,6 +3,7 @@ export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES';
 export const FILTER_CONTINENT = 'FILTER_CONTINENT';
 export const GET_COUNTRY = 'GET_COUNTRY';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
+export const ORDER_BY_POPULATION = 'ORDER_BY_POPULATION';
 
 export const getAllCountries = ()=> async(dispatch)=>{
     const url = await axios.get('http://localhost:3001/countries');
@@ -36,3 +37,9 @@ export const orderByName = (payload)=>{
     }
 }
 
+export const orderByPopulation = (payload)=>{
+    return{
+        type: ORDER_BY_POPULATION,
+        payload
+    }
+}

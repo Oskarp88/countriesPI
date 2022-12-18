@@ -1,19 +1,19 @@
 import React from 'react';
 import './Countries.css';
-import { filterContinent, getAllCountries, getCountry, orderByName } from '../redux/actions';
+import { filterContinent, getAllCountries, orderByName, orderByPopulation } from '../redux/actions';
 import Country from './Country';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import Paginado from './Paginado';
-import Error from './Error';
+import Search from './Search';
 
 const Countries = () => {
     const dispatch = useDispatch();
     const allCountries = useSelector((state)=> state.countries);
     const [paginaActual, setPaginaActual]=useState(1);
     const [paisesPorPag, setPaisesPorPag]=useState(9);
-    const [error, setError] = useState(false);
     const [orden, setOrden] = useState('');
+    const [poblacion, mostrarPoblacion] = useState(false);
 
     const indiceUltimoPais = paginaActual * paisesPorPag;
     const indicePrimerPais = indiceUltimoPais - paisesPorPag;
@@ -30,49 +30,33 @@ const Countries = () => {
 
     const handleClick = (e)=>{
         e.preventDefault();
-        dispatch(getAllCountries());        
+        dispatch(getAllCountries()); 
+        mostrarPoblacion(false)       
     }
     const filterContinente = (e)=>{
         dispatch(filterContinent(e.target.value))
+        mostrarPoblacion(false)
     }
     const orderName = (e)=>{
         e.preventDefault(e);
         dispatch(orderByName(e.target.value));
         setPaginaActual(1);
+        setOrden(`Ordenado ${e.target.value}`);
+        mostrarPoblacion(false)
+    }
+    const orderPopulation = (e)=>{
+        e.preventDefault(e);
+        dispatch(orderByPopulation(e.target.value));
+        setPaginaActual(1);
         setOrden(`Ordenado ${e.target.value}`)
+        mostrarPoblacion(true)
     }
 
-    const buscarPais = (e)=>{
-        e.preventDefault();
-
-        if(e.trim() === ''){
-            setError(true);
-            return;
-        }
-        setError(false);
-        dispatch(getCountry(e));
-    }
+    
     return ( 
         <div>
             <h1>Oscar Countries</h1>
-            <div >
-            <input 
-               name='pais'
-               className='form-Buscador'
-               type='text'
-               placeholder='Buscar Pais'
-               onChange={(e)=>buscarPais(e.target.value)}
-               
-             />
-            
-             <input 
-                type='submit'
-                className='btn'
-                value='Buscar'
-                onSubmit={buscarPais}
-            />
-            </div>
-            {error? <Error error={'por favor debes de llenar el campo'}/>:null}
+            <Search mostrarPoblacion={mostrarPoblacion}/>
             <div className='campo'>
                 <label className='label'>Filtrar por Continente</label>
                 <select
@@ -102,11 +86,11 @@ const Countries = () => {
                 <label className='label'>Por Cantidad de Poblacion</label>
                 <select
                   className='form-control'
-                  name='poblacion'
+                  onChange={e=>orderPopulation(e)}
                 >
                     <option >--Cantidad de poblacion--</option>
-                    <option value="ascendente">Mayor</option>
-                    <option value="descendente">Menor</option>
+                    <option value="asc">Mayor</option>
+                    <option value="des">Menor</option>
                 </select>
             </div>
             <button onClick={e=>{handleClick(e)}}>
@@ -126,6 +110,8 @@ const Countries = () => {
                             image={c.flags}
                             name={c.name}
                             continent={c.continents}
+                            poblacion={poblacion? c.population : null}
+                            condicion={poblacion}
                             />
                         )
                     })

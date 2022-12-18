@@ -1,7 +1,7 @@
 import React from 'react';
 import './country.css'
 
-const Country = ({name,image,continent}) => {
+const Country = ({name,image,continent,poblacion,condicion}) => {
     return ( 
         <div className='cards'>
           <div className='card'>
@@ -16,6 +16,7 @@ const Country = ({name,image,continent}) => {
                <h2>
                  {name}
                   <small>Continente: {continent}</small>
+                  {condicion? <small>Poblacion: {poblacion}</small>:null}
                </h2>
             </div>
           </div>
