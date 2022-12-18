@@ -1,0 +1,28 @@
+.form-control{
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e1e1e1;
+    appearance: none;   
+}
+.label{
+    flex: 0 0 100px;
+}
+.form-buscador{
+    margin: 0 1rem;
+    font-size: 16px;
+    width: 60%;
+    padding: 1rem;
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    
+}
+
+.container{
+    max-width: 600px;
+    margin: auto;
+}
