@@ -1,0 +1,31 @@
+.containedor{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (min-width:992px){
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      column-gap: 2rem;
+    }
+}
+detail{
+    margin-top: 0.5rem;;
+}
+
+img{
+    max-width: 100%;
+   margin-top: 0.5rem;
+}
+.column{
+    margin-top: 1rem;
+    margin-right: 5rem;
+    text-align: left;
+}
+
+.card-subHeading{
+   font-family: 'Courier New', Courier, monospace, cursive;
+   color: #36486b;
+   font-size: 20px;
+}

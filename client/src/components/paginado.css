@@ -1,53 +1,34 @@
-.pagination {
-    height: 36px;
-    margin: 18px 0;
+.siguiente{
+    margin-top: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #36486b;
+    border: none;
+    width: auto;
+    border-radius: 0 10px 10px 0px;
+    color: #fff;
+    transition: background-color .3s ease;
 }
-.pagination ul {
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    display: inline-block;
-    margin-bottom: 0;
-    margin-left: 0;
+.siguiente:hover{
+    background-color: #618685;
+    cursor: pointer;
 }
-.pagination li {
-    display: inline;
+.anterior{
+    margin-top: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #36486b;
+    border: none;
+    width: auto;
+    border-radius: 10px 0 0 10px;
+    color: #fff;
+    transition: background-color .3s ease;
 }
-.pagination a {
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    border-color: #DDDDDD;
-    border-style: solid;
-    border-width: 1px 1px 1px 0;
-    float: left;
-    line-height: 34px;
-    padding: 0 14px;
-    text-decoration: none;
-}
-.pagination a:hover, .pagination .active a {
-    background-color: #F5F5F5;
-}
-.pagination .active a {
-    color: #999999;
-    cursor: default;
-}
-.pagination .disabled a, .pagination .disabled a:hover {
-    background-color: transparent;
-    color: #999999;
-    cursor: default;
-}
-.pagination li:first-child a {
-    border-left-width: 1px;
-    border-radius: 3px 0 0 3px;
-}
-.pagination li:last-child a {
-    border-radius: 0 3px 3px 0;
-}
-.pagination-centered {
-    text-align: center;
-}
-.pagination-right {
-    text-align: right;
+.anterior:hover{
+    background-color: #618685;
+    cursor: pointer;
 }

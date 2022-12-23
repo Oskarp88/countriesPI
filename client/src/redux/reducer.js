@@ -1,8 +1,11 @@
-import { FILTER_CONTINENT, GET_ALL_COUNTRIES, GET_COUNTRY, ORDER_BY_NAME, ORDER_BY_POPULATION } from "./actions";
+import { FILTER_CONTINENT, GET_ACTIVITIES, GET_ALL_COUNTRIES, GET_COUNTRY,  GET_DETAIL, GET_NAME_ACTIVITY, ORDER_BY_NAME, ORDER_BY_POPULATION, POST_ACTIVITY } from "./actions";
 
 const initialState={
     countries: [],
     allCountries:[],
+    activities: [],
+    activity: [],
+    details:[],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -11,17 +14,43 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 countries: action.payload,
+                allCountries: action.payload
             }
         case GET_COUNTRY:
             return{
                 ...state,
                 countries: action.payload,
             }
-        case FILTER_CONTINENT:
+        case GET_ACTIVITIES:
             return{
                 ...state,
-                countries: action.payload,
+                activities: action.payload,
+                activity: action.payload,
             }
+        case POST_ACTIVITY:
+            return{
+                ...state,
+            }
+        case GET_NAME_ACTIVITY:
+            const act = state.activity;
+            const filtro = act.filter(e=> e.name=== action.payload);
+            return{
+                ...state,
+                activities: filtro
+            }
+        case FILTER_CONTINENT:
+            const country = state.allCountries;
+            const filtered = action.payload === ''? country : country.filter(e=> e.continents === action.payload)
+            return{
+                ...state,
+                countries: filtered,
+            }
+        case GET_DETAIL:
+            return{
+                ...state,
+                details: action.payload
+            }
+
         case ORDER_BY_NAME:
             let array = [];
            if (action.payload === 'asc') {

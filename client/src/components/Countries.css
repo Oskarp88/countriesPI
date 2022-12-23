@@ -1,12 +1,30 @@
-.form-control{
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #e1e1e1;
-    appearance: none;   
+
+.titulo{
+    font-family: 'Bebas Neue', cursive;
+   color: #fff;
+   text-align: center;
+   font-weight: 700;
+   font-size: 50px;
+   margin-bottom: 50px;
+   margin-top: 80px; 
 }
-.label{
-    flex: 0 0 100px;
+.contenedor{
+    max-width: 1200px;
+    margin: auto;
+}
+.titulo::after{
+    content: '';
+    width: 100%;
+    height: 6px;
+    background-color: #36486b;
+    display:block;
+   }
+.titulo3{
+    font-family: 'Bebas Neue', cursive;
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+   
 }
 .form-buscador{
     margin: 0 1rem;
@@ -25,4 +43,40 @@
 .container{
     max-width: 600px;
     margin: auto;
+}
+.boton{
+    margin-top: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #36486b;
+    border: none;
+    width: 20%;
+    border-radius: 10px;
+    color: #fff;
+    transition: background-color .3s ease;
+
+    
+}
+.boton:hover{
+    background-color: #618685;
+    cursor: pointer;
+}
+.btn{
+    margin-top: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #36486b;
+    border: none;
+    width: auto;
+    border-radius: 0 10px 10px 0px;
+    color: #fff;
+    transition: background-color .3s ease;
+}
+.btn:hover{
+    background-color: #618685;
+    cursor: pointer;
 }

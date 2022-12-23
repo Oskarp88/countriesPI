@@ -23,7 +23,7 @@ const  cargarBDCountry  = require('./src/utils/utils.js');
 
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   await cargarBDCountry();
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console

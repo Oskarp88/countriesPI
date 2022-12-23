@@ -28,23 +28,22 @@ const getAllCountries = async (req, res) => {
     }
 }
 
-const getContinents = async(req,res)=>{
-    const {filter} = req.params;
+const getDetail = async(req,res)=>{
+    const {id} = req.params;
 
-    if(filter){
-        let continente = await Country.findAll({
+    if(id){
+        const id3 = await Country.findOne({
             where: {
-                continents:{
-                    [Op.iLike]: '%'+filter+'%'
-                },
-            }
+                id: id
+            },
+            include: Activity
         });
-        return res.send(continente);
+        return res.send(id3);
     }
 }
 
 
 module.exports = {
     getAllCountries,
-    getContinents
+    getDetail
 }

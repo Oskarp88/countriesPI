@@ -3,7 +3,8 @@ import {Route, Switch} from 'react-router-dom';
 import Landing from './views/Landing';
 import Countries from './components/Countries';
 import Details from './components/Details';
-import Activities from './components/Activities';
+import CreateActivity from './components/CreateActivity';
+
 
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
           <Route exact path='/countries'>
             <Countries/>
           </Route>
-          <Route exact path='/details' component={Details}/>
-          <Route exact path='/activities' component={Activities}/>
+          <Route exact path='/countries/:id' component={Details}/>
+          <Route  path='/activities' component={CreateActivity}/>
        </Switch>
     </div>
   );

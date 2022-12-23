@@ -1,24 +1,22 @@
 import React from 'react';
-import './country.css'
+import './country.css';
+import { Link } from 'react-router-dom';
 
-const Country = ({name,image,continent,poblacion,condicion}) => {
+const Country = ({name,image,continent,poblacion,condicion,id}) => {
     return ( 
-        <div className='cards'>
+        <div className='wrapper'>
           <div className='card'>
-            <div className='card_image-holder'> 
-              <img src={image} alt='img not found' />
+            <div>
+            <Link to={`/countries/${id}`}><img src={image} alt='img not found' /></Link>
+            <div id='container'>
+               <p id='name'><b>{name}</b></p>
+               <p id='exp'>Continente: {continent}</p>
+                  {condicion? <p>Poblacion: {poblacion}</p>:null}
+               
+               <Link to={`/countries/${id}`}><a id='button'>Ver mas</a></Link>
             </div>
-            <div className='card-title'>
-               <a href="#" className='toggle-info btn'>
-                  <span class="left"></span>
-                  <span class="right"></span>
-               </a>
-               <h2>
-                 {name}
-                  <small>Continente: {continent}</small>
-                  {condicion? <small>Poblacion: {poblacion}</small>:null}
-               </h2>
             </div>
+            
           </div>
         </div>
      );

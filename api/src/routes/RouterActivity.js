@@ -5,6 +5,6 @@ const { getAllActivity, activityCreate } = require("../controllers/ActivityContr
 const activityRouter = Router();
 
 activityRouter.get('/',getAllActivity);
-activityRouter.post('/create_activity',activityCreate);
+activityRouter.post('/',activityCreate);
 
 module.exports = activityRouter;

@@ -1,4 +1,5 @@
 
+
 const { Country, Activity} = require('../db');
 
 
@@ -7,14 +8,29 @@ const getAllActivity = async(req,res)=>{
     try {
        
         if(name){
-            const actividad = await Activity.findAll({
+            const actividad = await Activity.findOne({
                 where: {
                     name: name
+                },
+                include: {
+                    model: Country,
+                    attributes: ['name'],
+                    through:{
+                        attributes:[]
+                    }
                 }
             });
             return res.send(actividad);
         }else{
-            const actividad = await Activity.findAll();
+            const actividad = await Activity.findAll(
+                {include: {
+                    model: Country,
+                    attributes: ['name'],
+                    through:{
+                        attributes:[]
+                    }
+                }}
+            );
             return res.send(actividad);
         }
     } catch (error) {
@@ -31,14 +47,23 @@ const activityCreate = async(req,res)=>{
                 // countryId.forEach((c) => {
                 //     idPais(name,difficulty,duration,season,c)
                 // });
-                const newAct = await Activity.create({
-                     name,
-                     difficulty,
-                     duration,
-                     season
-                    });
-                    await newAct.addCountries(countryId);
-                return res.send("Actividad creada");
+                const validate = await Activity.findOne({
+                    where:{
+                        name: name
+                    }
+                });
+                if(!validate){
+                    const newAct = await Activity.create({
+                        name,
+                        difficulty,
+                        duration,
+                        season
+                       });
+                       await newAct.addCountries(countryId);
+                   return res.send("Actividad creada");
+                }else{
+                    return res.send("la actividad ya existe")
+                }
             }else{
                 res.send('faltan parametros')
             }
