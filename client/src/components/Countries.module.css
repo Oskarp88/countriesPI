@@ -10,8 +10,10 @@
 }
 .contenedor{
     max-width: 1200px;
-    margin: auto;
+    margin:auto;
+    
 }
+
 .titulo::after{
     content: '';
     width: 100%;
@@ -26,12 +28,7 @@
     font-size: 25px;
    
 }
-.form-buscador{
-    margin: 0 1rem;
-    font-size: 16px;
-    width: 60%;
-    padding: 1rem;
-}
+
 
 .campo{
     display: flex;
@@ -52,16 +49,21 @@
     padding: 10px 20px;
     background-color: #36486b;
     border: none;
-    width: 20%;
+    width: 45%;
     border-radius: 10px;
     color: #fff;
     transition: background-color .3s ease;
-
+    align-items: center;
+     margin-left: 15px;
     
 }
 .boton:hover{
     background-color: #618685;
     cursor: pointer;
+}
+.botones{
+    width: 50%;
+    margin-left: 25%;
 }
 .btn{
     margin-top: 20px;
@@ -79,4 +81,7 @@
 .btn:hover{
     background-color: #618685;
     cursor: pointer;
+}
+.contry{
+    padding: 0 120px;
 }

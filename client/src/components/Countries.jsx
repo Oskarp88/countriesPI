@@ -1,5 +1,5 @@
 import React from 'react';
-import './Countries.css';
+import styles from './Countries.module.css';
 import { filterContinent, getAllCountries, orderByName, orderByPopulation } from '../redux/actions';
 import Country from './Country';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,11 +30,11 @@ const Countries = () => {
     const [activity, setActivity]=useState("Pais");
     const [orden, setOrden] = useState('');
     const [poblacion, mostrarPoblacion] = useState(false);
-
-    const indiceUltimoPais = paginaActual ===1? paginaActual * 9: paginaActual*paisesPorPag;
-    const indicePrimerPais = paginaActual ===1? indiceUltimoPais - 9: (indiceUltimoPais-1)-paisesPorPag;
+   
+    const indiceUltimoPais = paginaActual * paisesPorPag
+    const indicePrimerPais =  indiceUltimoPais - paisesPorPag;
     
-    const paisActual = allCountries.slice(indicePrimerPais,indiceUltimoPais);
+    const paisActual = allCountries.slice(paginaActual===1?0:indicePrimerPais-1,indiceUltimoPais-1);
     //                                         0                9
     //                                         9                19
     //                                         19                   29
@@ -50,6 +50,7 @@ const Countries = () => {
     const handleClick = (e)=>{
         e.preventDefault();
         dispatch(getAllCountries()); 
+        setActivity('Pais');
         mostrarPoblacion(false)       
     }
     const filterContinente = (e)=>{
@@ -73,10 +74,10 @@ const Countries = () => {
 
     
     return ( 
-        <div className='contenedor'>
-            <h1 className='titulo'>Oscar Countries</h1>
-            <h3 className='titulo3'>Filtrar por:</h3>
-            <div className='campo'>
+        <div className={styles.contenedor}>
+            <h1 className={styles.titulo}>Oscar Countries</h1>
+            <h3 className={styles.titulo3}>Filtrar por:</h3>
+            <div className={styles.campo}>
                 <Select
                   onChange={e=> filterContinente(e)}
                 >
@@ -106,17 +107,21 @@ const Countries = () => {
                     <option value="des">Menor</option>
                 </Select>
             </div>
-            <button className='boton' onClick={e=>{handleClick(e)}}>
+            <div className={styles.botones}>
+            <button className={styles.boton} onClick={e=>{handleClick(e)}}>
                 Cargar Paises
             </button>
             
                 <Link  to='/activities'>
-                    <button className='boton'>Crear Actividad</button>
+                    <button className={styles.boton}>Crear Actividad</button>
                 </Link>
+            </div>
             
             <Search 
             mostrarPoblacion={mostrarPoblacion}
-            setActivity={setActivity}/>
+            setActivity={setActivity}
+            setPaginaActual={setPaginaActual}/>
+
             {activity === 'Pais'?                           
                 <Paginado 
                 setPaginaActual={setPaginaActual}
@@ -127,10 +132,10 @@ const Countries = () => {
               
             />:null}
             { activity === 'Actividad'? 
-            <div>                  
+            <div className={styles.cardActivity}>                  
                  <Activity />
             </div>
-            :<div>
+            :<div className={styles.contry}>
                 {
                     paisActual?.map((c)=>{
                         return(
@@ -145,6 +150,7 @@ const Countries = () => {
                             />
                         )
                     })
+                    
                 }
             </div>}
         </div>

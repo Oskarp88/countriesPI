@@ -1,9 +1,9 @@
 .siguiente{
     margin-top: 20px;
-    margin-right: 10px;
+    margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #36486b;
     border: none;
     width: auto;
@@ -17,10 +17,11 @@
 }
 .anterior{
     margin-top: 20px;
-    margin-right: 10px;
+    margin-right: 4px;
+    margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #36486b;
     border: none;
     width: auto;

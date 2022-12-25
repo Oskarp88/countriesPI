@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import {  getAllCountries,  getNameActivity,  PostActivity } from '../redux/actions';
+import {  getActivities, getAllCountries,  getNameActivity,  PostActivity } from '../redux/actions';
 import Error from './Error';
 import styled from 'styled-components';
 
@@ -153,6 +153,7 @@ const CreateActivity = () => {
         countryId: []
     });
     const [error, setError] = useState(false);
+    
 
     const selectOrden  = countries.sort(function (a,b){
         if(a.name > b.name){
@@ -166,8 +167,7 @@ const CreateActivity = () => {
     
     
     const handleChange = (e)=>{
-        e.preventDefault();
-        dispatch(getNameActivity(input.name))
+        
         setInput({
             ...input,
             [e.target.name]:e.target.value
@@ -188,10 +188,10 @@ const CreateActivity = () => {
     }
     const handleSubmit = (e)=>{
         e.preventDefault();
-        
-        if(activity.name === input.name){
-            return alert('Nombre ya existe, por favor crea otro Nombre')
-          }
+        let nameAct =activity.find(act=>act.name === input.name);
+        if(nameAct!== undefined){
+            return alert("El nombre de la actividad ya existe, por Favor escriba otro nombre");
+        }
         if(input.name.trim()===''||input.difficulty === 0 || input.duration === 0 
         || input.season.trim() === '' || input.countryId.length === 0){
             setError(true);
@@ -220,7 +220,8 @@ const CreateActivity = () => {
     }
 
     useEffect(()=>{
-       dispatch(getAllCountries())
+       dispatch(getAllCountries());
+       dispatch(getActivities());
     },[dispatch]);
 
     return(

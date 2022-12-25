@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Error.module.css'
 
 const Error = ({error}) => {
     return ( 
-        <div className='my-3 p-4 text-center  alert alert-primary'>{error}</div>
+        <div className={styles.error}>{error}</div>
      );
 }
  

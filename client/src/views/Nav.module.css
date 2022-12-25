@@ -1,0 +1,39 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0.3);
+   
+}
+.logo{
+    width: 45px;
+    height: 25px;
+    margin-right: 10px;
+    padding: 0;
+}
+.app{
+    margin-right: 850px;
+    font-family: 'Bebas Neue', cursive;
+   color: #eff2f5;
+   text-align: center;
+   font-weight: 700;
+   font-size: 30px;
+}
+.li2{
+    margin-right: 30px;
+}
+a { 
+    text-decoration: none; 
+    color: rgb(252, 252, 250);
+    cursor: pointer;
+}
+
+a:hover {
+    color: rgb(216, 216, 162);
+}
+li{
+    display: inline;
+    margin: 3px;
+    margin-left: 20xp;
+}
+
+

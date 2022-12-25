@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import {  getCountry, getNameActivity } from '../redux/actions';
 import Error from './Error';
 import { useDispatch } from 'react-redux';
-import './Countries.css';
+import styles from './Countries.module.css';
 import styled from 'styled-components';
 
+const Contenedor = styled.div`
+   width: 60%;
+   margin-left: 24%;
+   margin-bottom: 5px;
+`;
 const Select = styled.select`
     width: auto;
     background-color: #36486b;
@@ -14,15 +19,16 @@ const Select = styled.select`
    border: none;
    font-size: 1.2rem;
    color: #fff;
+   
 `;
 const Input = styled.input`
-    width: 30%;
+    width: 50%;
     padding: 10px 20px;
    border: none;
    font-size: 1.2rem;
 `;
 
-const Search = ({mostrarPoblacion,setActivity}) => {
+const Search = ({mostrarPoblacion,setActivity,setPaginaActual}) => {
 
     const dispatch = useDispatch();
     const [name, setName] = useState("");
@@ -40,11 +46,9 @@ const Search = ({mostrarPoblacion,setActivity}) => {
             return;
         }
         setError(false);
-        if(selec === 'Pais'){
-        dispatch(getCountry(name));
-       }else{
-        dispatch(getNameActivity(name));
-       }
+        setPaginaActual(1);
+        dispatch(selec === 'Actividad'?getNameActivity(name):getCountry(name));
+       
         mostrarPoblacion(false);
     }
     const handleSelect = (e)=>{
@@ -54,7 +58,7 @@ const Search = ({mostrarPoblacion,setActivity}) => {
 
     return ( 
         <div>
-            <div >
+            <Contenedor>
                 <Select onChange={(e)=>handleSelect(e)} >
                     <option value="Pais">Pais</option>
                     <option value="Actividad">Actividad</option>
@@ -69,11 +73,11 @@ const Search = ({mostrarPoblacion,setActivity}) => {
                 
                 <input 
                     type='submit'
-                    className='btn'
+                    className={styles.btn}
                     value='Buscar'
                     onClick={e=>buscarPais(e)}
                 />
-                </div>
+                </Contenedor>
             {error? <Error error={'por favor debes de llenar el campo'}/>:null}
         </div>
      );

@@ -1,13 +1,17 @@
 .container{
-    display: inline;
-    justify-content: center;
+    display: inline-block;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 40px 0;
+    margin-left: 55px;
+    
 }
 
 .container .card{
+   
+    width: 20%;
     position: relative;
     min-width: 320px;
     height: 440px;

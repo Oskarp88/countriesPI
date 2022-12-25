@@ -1,0 +1,69 @@
+.contenedor1{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.bg_animate{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+}
+
+.header_nav{
+    width: 100%; 
+}
+.head_nav .contendor1{
+    display: flex;
+    padding: 15px 0;
+    
+}
+.header_nav h1{
+    color: #1a2849;
+    font-family: 'Gagalin';
+}
+.header_nav nav a{
+    color: #1a2849;
+    font-size: 20px;
+       
+}
+.banner{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.banner_title h2{
+    text-align: left;
+    color: #fff;
+    font-size: 60px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.banner_title .comenzar{
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block;
+    background: #1a2849;
+    padding: 20px;
+}
+.banner_img{
+    animation: movimiento 2.5s linear infinite;
+}
+.banner_img img{
+    width: 600px;
+    height: 400px;
+    display: block;
+}
+@keyframes movimiento{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(30px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}

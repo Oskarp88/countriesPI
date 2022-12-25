@@ -1,5 +1,5 @@
 import React from 'react';
-import './cardActivity.css';
+import  './CardActivity.css';
 
 const CardActivity = ({name,difficulty,duration,season,paises}) => {
     return (  

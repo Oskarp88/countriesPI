@@ -2,10 +2,11 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  getDetail } from '../redux/actions';
 import { Link, useParams} from 'react-router-dom';
-import './details.css';
+import  './Details.css';
 import styled from 'styled-components';
 
 const Boton = styled.button`
+    margin-left: 200px;
     margin-top: 10px;
     margin-right: 50rem;
     font-weight: bold;
@@ -64,7 +65,7 @@ const Details = () => {
             
                 <img src = {country.flags} alt = 'image not found' width='300px' height='250px'/>
             </div> 
-                <div className=' column'>
+                <div className='column'>
                     <h3 className='card-subHeading'>Continente: <b>{country.continents}</b></h3>
                     <h5 className='card-subHeading'> Codigo: <b>{country.id}</b></h5>
                     <h5 className='card-subHeading'> Sub Region: <b>{country.subregion}</b></h5>

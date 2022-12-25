@@ -1,18 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import './paginado.css';
+import styles from './Paginado.module.css';
 
 const Boton = styled.button`
     margin-top: 20px;
     margin: 2px;
     font-weight: bold;
     font-size: 20px;
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #36486b;
     border: none;
     width: auto;
     color: #fff;
     transition: background-color .3s ease;
+   margin-left: 10px;
 
     &:hover{
         background-color: #618685;
@@ -43,14 +44,16 @@ const Paginado = ({paisesPorPagina, allcountries, paginado,paginaActual,setPagin
     
     return(
         <nav>
-            {paginaActual > 1 ?
-            <button
-            type='button'
-            className="anterior"
-            onClick={paginaAnterior}
-            >{"<<"} Anterior </button> : null
-            }
             
+            
+                <div className={styles.page}>
+                {paginaActual > 1 ?
+                <button
+                type='button'
+                className={styles.anterior}
+                onClick={paginaAnterior}
+                >{"<<"} Anterior </button> : null
+                }
                 {
                     pageNumber?.map(number=>(
                           number ===0? null:
@@ -58,15 +61,17 @@ const Paginado = ({paisesPorPagina, allcountries, paginado,paginaActual,setPagin
                           
                     ))
                 }
+                {
+                    paginaActual< totalPagina? 
+                    <button
+                    type='button'
+                    className={styles.siguiente}
+                    onClick={paginaSiguiente}
+                    >Siguiente {">>"}</button>: null
+                    }
+                </div>
             
-            {
-          paginaActual< totalPagina? 
-          <button
-           type='button'
-           className="siguiente"
-           onClick={paginaSiguiente}
-           >Siguiente {">>"}</button>: null
-          }
+            
         </nav>
     )
 }

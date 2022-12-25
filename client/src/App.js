@@ -4,20 +4,20 @@ import Landing from './views/Landing';
 import Countries from './components/Countries';
 import Details from './components/Details';
 import CreateActivity from './components/CreateActivity';
+import NavBar from './views/NavBar';
 
 
 
 function App() {
   return (
-    <div className="App">
-       <Switch>
+    <div >
+          <Route path="/" component ={NavBar}/>
           <Route exact path='/' component={Landing} />
           <Route exact path='/countries'>
             <Countries/>
           </Route>
           <Route exact path='/countries/:id' component={Details}/>
-          <Route  path='/activities' component={CreateActivity}/>
-       </Switch>
+          <Route  path='/activities' component={CreateActivity}/>       
     </div>
   );
 }

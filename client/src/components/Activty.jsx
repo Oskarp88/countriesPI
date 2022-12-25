@@ -13,7 +13,7 @@ const Activity = () => {
    },[dispatch]);
    
     return ( 
-        <div>
+        <div >
             
             {
                 allActivity?.map((a)=>(
