@@ -55,21 +55,24 @@ const Countries = () => {
     }
     const filterContinente = (e)=>{
         dispatch(filterContinent(e.target.value))
-        mostrarPoblacion(false)
+        mostrarPoblacion(false);
+        setPaginaActual(1);
     }
     const orderName = (e)=>{
         e.preventDefault(e);
         dispatch(orderByName(e.target.value));
         setPaginaActual(1);
         setOrden(`Ordenado ${e.target.value}`);
-        mostrarPoblacion(false)
+        mostrarPoblacion(false);
+        setPaginaActual(1);
     }
     const orderPopulation = (e)=>{
         e.preventDefault(e);
         dispatch(orderByPopulation(e.target.value));
         setPaginaActual(1);
         setOrden(`Ordenado ${e.target.value}`)
-        mostrarPoblacion(true)
+        mostrarPoblacion(true);
+        setPaginaActual(1);
     }
 
     
