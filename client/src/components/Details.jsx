@@ -74,7 +74,7 @@ const Details = () => {
                 </div>
             
          </div>
-         <div>
+         <div className='activitys'>
                 {
                     country.activities?.map((e)=>(
                         <div className='container'>

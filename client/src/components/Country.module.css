@@ -6,6 +6,8 @@ body{
    
    
 }
+
+
  .card{
     margin: 8px;
     display:inline-block;
@@ -29,9 +31,9 @@ img{
 }
 .wrapper{
     max-width: 960px;
-    display: inline;
+    display: inline-block;
     flex-wrap: wrap;
-    margin: 80px auto;
+    margin: 20px auto;
 }
 a{
     text-decoration: none;

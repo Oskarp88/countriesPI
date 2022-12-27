@@ -13,7 +13,7 @@ const Boton = styled.button`
     width: auto;
     color: #fff;
     transition: background-color .3s ease;
-   margin-left: 10px;
+    margin-left: 10px;
 
     &:hover{
         background-color: #618685;
@@ -48,26 +48,24 @@ const Paginado = ({paisesPorPagina, allcountries, paginado,paginaActual,setPagin
             
                 <div className={styles.page}>
                 {paginaActual > 1 ?
-                <button
-                type='button'
+                <a
                 className={styles.anterior}
                 onClick={paginaAnterior}
-                >{"<<"} Anterior </button> : null
+                >&laquo; </a> : null
                 }
                 {
                     pageNumber?.map(number=>(
                           number ===0? null:
-                            <Boton  onClick={()=>paginado(number)} key={number}>{number}</Boton>
+                            <a  onClick={()=>paginado(number)} key={number}>{number}</a>
                           
                     ))
                 }
                 {
                     paginaActual< totalPagina? 
-                    <button
-                    type='button'
+                    <a
                     className={styles.siguiente}
                     onClick={paginaSiguiente}
-                    >Siguiente {">>"}</button>: null
+                    >&raquo;</a>: null
                     }
                 </div>
             

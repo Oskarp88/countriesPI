@@ -42,31 +42,33 @@
     margin: auto;
 }
 .boton{
-    margin-top: 20px;
-    margin-right: 10px;
+    margin: 5px;
+    display: inline;
+    margin-top: 20px;   
     font-weight: bold;
     font-size: 20px;
     padding: 10px 20px;
     background-color: #36486b;
     border: none;
-    width: 45%;
+    width: 100%;
     border-radius: 10px;
     color: #fff;
     transition: background-color .3s ease;
-    align-items: center;
-     margin-left: 15px;
+   
     
 }
 .boton:hover{
     background-color: #618685;
     cursor: pointer;
 }
+
 .botones{
-    width: 50%;
-    margin-left: 25%;
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
 }
 .btn{
-    margin-top: 20px;
+    
     margin-right: 10px;
     font-weight: bold;
     font-size: 20px;
@@ -83,5 +85,13 @@
     cursor: pointer;
 }
 .contry{
-    padding: 0 120px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+}
+.search{
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    margin-top: 20px;
 }

@@ -111,13 +111,12 @@ const Countries = () => {
                 </Select>
             </div>
             <div className={styles.botones}>
-            <button className={styles.boton} onClick={e=>{handleClick(e)}}>
-                Cargar Paises
-            </button>
-            
-                <Link  to='/activities'>
-                    <button className={styles.boton}>Crear Actividad</button>
-                </Link>
+                <button className={styles.boton} onClick={e=>{handleClick(e)}}>
+                    Cargar Paises
+                </button>
+                <button className={styles.boton}><Link  to='/activities'>
+                    Crear Actividad
+                </Link></button>
             </div>
             
             <Search 

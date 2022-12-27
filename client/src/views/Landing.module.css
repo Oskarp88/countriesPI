@@ -2,16 +2,15 @@
     width: 90%;
     max-width: 1200px;
     margin: auto;
+    margin-top: 2rem;
 }
 
 .bg_animate{
     width: 100%;
     height: 100vh;
-    position: relative;
-
 }
 
-.header_nav{
+ .header_nav{
     width: 100%; 
 }
 .head_nav .contendor1{

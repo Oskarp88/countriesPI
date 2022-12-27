@@ -13,8 +13,7 @@ const Contenedor = styled.div`
 const Select = styled.select`
     width: auto;
     background-color: #36486b;
-    padding: 10px 20px;
-   -webkit-appearance: none;
+    padding: 10px 20px;   
    border-radius: 10px 0 0 10px;
    border: none;
    font-size: 1.2rem;
@@ -24,8 +23,8 @@ const Select = styled.select`
 const Input = styled.input`
     width: 50%;
     padding: 10px 20px;
-   border: none;
-   font-size: 1.2rem;
+    border: none;
+    font-size: 1.2rem;
 `;
 
 const Search = ({mostrarPoblacion,setActivity,setPaginaActual}) => {
@@ -57,8 +56,8 @@ const Search = ({mostrarPoblacion,setActivity,setPaginaActual}) => {
     }
 
     return ( 
-        <div>
-            <Contenedor>
+        <Contenedor>
+            <div className={styles.search}>
                 <Select onChange={(e)=>handleSelect(e)} >
                     <option value="Pais">Pais</option>
                     <option value="Actividad">Actividad</option>
@@ -77,9 +76,9 @@ const Search = ({mostrarPoblacion,setActivity,setPaginaActual}) => {
                     value='Buscar'
                     onClick={e=>buscarPais(e)}
                 />
-                </Contenedor>
+            </div>
             {error? <Error error={'por favor debes de llenar el campo'}/>:null}
-        </div>
+        </Contenedor>
      );
 }
  
