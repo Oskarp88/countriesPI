@@ -32,7 +32,7 @@ a:hover {
     color: rgb(216, 216, 162);
 }
 .header{
-   background-color: rgba(0, 0, 0, 0.3);
+   background-color: #36486b;
    width: 100%;
    display: flex;
    justify-content: space-between;

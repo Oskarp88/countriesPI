@@ -26,7 +26,7 @@ const Boton = styled.button`
 `;
 const H2 = styled.h2`
    font-family: 'Bebas Neue', cursive;
-   color: #fff;
+   color: #618685;
    text-align: left;
    font-weight: 700;
    font-size: 50px;

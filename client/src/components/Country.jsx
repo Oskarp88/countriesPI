@@ -11,7 +11,7 @@ const Country = ({name,image,continent,poblacion,condicion,id}) => {
             <div id={styles.container}>
                <p id={styles.name}><b>{name}</b></p>
                <p id={styles.exp}>Continente: {continent}</p>
-                  {condicion? <p>Poblacion: {poblacion}</p>:null}
+                  {condicion? <p id={styles.pop}>Poblacion: {poblacion}</p>:null}
                
                <Link to={`/countries/${id}`}><a id={styles.button}>Ver mas</a></Link>
             </div>

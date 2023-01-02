@@ -23,7 +23,7 @@ const Activity = () => {
                        difficulty={a.difficulty}
                        duration={a.duration}
                        season={a.season}
-                       paises={a.countries.map((c)=>c.name+('  '))}
+                       paises={a.countries.map((c)=>c.name+(' | '))}
                     />
                 ))
             }

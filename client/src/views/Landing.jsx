@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import tierra from '../image/tierra.png';
-import styles from './Landing.module.css'
+import styles from './Landing.module.css';
+
 
 const Leading = () => {
     return ( 

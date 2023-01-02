@@ -9,6 +9,7 @@ export const POST_ACTIVITY = 'POST_ACTIVTY';
 export const GET_DETAIL = 'GET_DETAIL';
 export const GET_NAME_ACTIVITY = 'GET_NAME_ACTIVITY';
 
+
 export const getAllCountries = ()=> async(dispatch)=>{
     const url = await axios.get('http://localhost:3001/countries');
     return dispatch({
@@ -51,6 +52,7 @@ export const getNameActivity = (name)=>async(dispatch)=>{
         payload: name
     })
 }
+
 export const filterContinent = (id) =>{
     return{
         type: FILTER_CONTINENT,

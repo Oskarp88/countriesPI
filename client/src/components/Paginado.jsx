@@ -1,34 +1,30 @@
 import React from 'react';
-import styled from 'styled-components';
 import styles from './Paginado.module.css';
 
-const Boton = styled.button`
-    margin-top: 20px;
-    margin: 2px;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 8px 16px;
-    background-color: #36486b;
-    border: none;
-    width: auto;
-    color: #fff;
-    transition: background-color .3s ease;
-    margin-left: 10px;
-
-    &:hover{
-        background-color: #618685;
-        cursor: pointer;
-    }
-`;
 
 
-const Paginado = ({paisesPorPagina, allcountries, paginado,paginaActual,setPaginaActual}) => {
+
+const Paginado = ({paisesPorPagina, allcountries,paginado,paginaActual,setPaginaActual,paisActual}) => {
     const pageNumber= [];
 
     const totalPagina = Math.ceil(allcountries/paisesPorPagina);
-    for (let i = 0; i < totalPagina; i++) {
+    for (let i = 1; i < totalPagina+1; i++) {
         pageNumber.push(i)
     }
+    let page = ()=>{
+        const mitad = Math.round(4/2);
+        let hasta = 4;
+        if(paginaActual + mitad >= totalPagina){
+            hasta = totalPagina;
+        }else if(paginaActual>mitad){
+            hasta = paginaActual + mitad;
+        }
+        let desde = hasta-4;
+        if(desde < 0){
+          desde=0;
+        }
+        return pageNumber.slice(desde,hasta);
+    };
     //definir pagina anterior
   const paginaAnterior = ()=>{
     const nuevaPaginaActual = paginaActual - 1;
@@ -41,25 +37,23 @@ const Paginado = ({paisesPorPagina, allcountries, paginado,paginaActual,setPagin
    if(pagCurrent === totalPagina +1)return;
    setPaginaActual(pagCurrent);
  }
+ 
     
     return(
-        <nav>
-            
-            
-                <div className={styles.page}>
+        <nav className={styles.page}>                        
+                {paisActual < 9 && paginaActual===1?null:<div >
                 {paginaActual > 1 ?
                 <a
                 className={styles.anterior}
                 onClick={paginaAnterior}
                 >&laquo; </a> : null
                 }
-                {
-                    pageNumber?.map(number=>(
-                          number ===0? null:
-                            <a  onClick={()=>paginado(number)} key={number}>{number}</a>
-                          
-                    ))
-                }
+                   {
+                    page().map(number=>
+                        <a  onClick={()=>paginado(number)} className={number===paginaActual? styles.active:null}  key={number}>{number}</a> 
+                        )
+                   }
+                   
                 {
                     paginaActual< totalPagina? 
                     <a
@@ -67,7 +61,7 @@ const Paginado = ({paisesPorPagina, allcountries, paginado,paginaActual,setPagin
                     onClick={paginaSiguiente}
                     >&raquo;</a>: null
                     }
-                </div>
+                </div>}
             
             
         </nav>

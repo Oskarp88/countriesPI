@@ -1,4 +1,4 @@
-import { FILTER_CONTINENT, GET_ACTIVITIES, GET_ALL_COUNTRIES, GET_COUNTRY,  GET_DETAIL, GET_NAME_ACTIVITY, ORDER_BY_NAME, ORDER_BY_POPULATION, POST_ACTIVITY } from "./actions";
+import { FILTER_CONTINENT, GET_ACTIVITIES, GET_ALL_COUNTRIES, GET_COUNTRY,   GET_DETAIL, GET_NAME_ACTIVITY, ORDER_BY_NAME, ORDER_BY_POPULATION, POST_ACTIVITY } from "./actions";
 
 const initialState={
     countries: [],
@@ -32,12 +32,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
             }
         case GET_NAME_ACTIVITY:
-            const act = state.activity;
-            const filtro = act.filter(e=> e.name=== action.payload);
             return{
                 ...state,
-                activities: filtro
+                countries: state.allCountries.filter((c)=> c.activities.some((a)=> a.name===action.payload))
             }
+        
         case FILTER_CONTINENT:
             const country = state.allCountries;
             const filtered = action.payload === ''? country : country.filter(e=> e.continents === action.payload)

@@ -1,7 +1,7 @@
 
 .titulo{
     font-family: 'Bebas Neue', cursive;
-   color: #fff;
+   color: #36486b;
    text-align: center;
    font-weight: 700;
    font-size: 50px;
@@ -23,7 +23,7 @@
    }
 .titulo3{
     font-family: 'Bebas Neue', cursive;
-    color: #fff;
+    color: #36486b;;
     text-align: center;
     font-size: 25px;
    
@@ -87,7 +87,7 @@
 .contry{
     display: inline-block;
     margin-bottom: 1rem;
-    padding: 0 2rem;
+    padding: 0 7.5rem;
 }
 .search{
     display: flex;

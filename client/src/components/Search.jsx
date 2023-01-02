@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  getCountry, getNameActivity } from '../redux/actions';
+import {  getCountry, getCountryActivity, getNameActivity } from '../redux/actions';
 import Error from './Error';
 import { useDispatch } from 'react-redux';
 import styles from './Countries.module.css';
@@ -27,7 +27,7 @@ const Input = styled.input`
     font-size: 1.2rem;
 `;
 
-const Search = ({mostrarPoblacion,setActivity,setPaginaActual}) => {
+const Search = ({mostrarPoblacion,setPaginaActual}) => {
 
     const dispatch = useDispatch();
     const [name, setName] = useState("");
@@ -52,7 +52,6 @@ const Search = ({mostrarPoblacion,setActivity,setPaginaActual}) => {
     }
     const handleSelect = (e)=>{
          setSelect(e.target.value);
-         setActivity(e.target.value);
     }
 
     return ( 

@@ -12,6 +12,8 @@ import styled from 'styled-components';
 
 const Select = styled.select`
     width: 100%;
+    background-color: #2f426e;
+    color: #fff;
    display: block;
    padding: 1rem;
    -webkit-appearance: none;
@@ -54,7 +56,7 @@ const Countries = () => {
         mostrarPoblacion(false)       
     }
     const filterContinente = (e)=>{
-        dispatch(filterContinent(e.target.value))
+        dispatch(filterContinent(e.target.value));
         mostrarPoblacion(false);
         setPaginaActual(1);
     }
@@ -124,20 +126,19 @@ const Countries = () => {
             setActivity={setActivity}
             setPaginaActual={setPaginaActual}/>
 
-            {activity === 'Pais'?                           
+                                       
                 <Paginado 
                 setPaginaActual={setPaginaActual}
               paginaActual={paginaActual}
               paisesPorPagina={paisesPorPag}
               allcountries={allCountries.length}
               paginado={paginado}
-              
-            />:null}
-            { activity === 'Actividad'? 
+              paisActual={paisActual.length}  />           
+            {/* { if(activity === 'Actividad')
             <div className={styles.cardActivity}>                  
                  <Activity />
-            </div>
-            :<div className={styles.contry}>
+            </div> */}
+            <div className={styles.contry}>
                 {
                     paisActual?.map((c)=>{
                         return(
@@ -154,7 +155,7 @@ const Countries = () => {
                     })
                     
                 }
-            </div>}
+            </div>
         </div>
      );
 }

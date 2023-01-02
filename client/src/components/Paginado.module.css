@@ -1,8 +1,6 @@
 
 .page{
-    margin: auto;
-    align-items: center;
-    
+    padding-left: 40%;
 }
 .page a{
     color: rgb(253, 250, 250);
@@ -18,6 +16,11 @@
     background-color: gray;
     color: white;
 }
-.page a:hover:not(.activo){
+.page a:hover:not(.activo), .page .active{
     background-color: #36486b;
+}
+
+.page .active{
+    color: #fff;
+    cursor: default;
 }
