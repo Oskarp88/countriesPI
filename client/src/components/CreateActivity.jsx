@@ -70,7 +70,7 @@ const Heading = styled.h1`
 `;
 const Boton = styled.button`
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 80px;
     font-weight: bold;
     font-size: 20px;
     padding: 10px 20px;
