@@ -8,6 +8,7 @@ export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const POST_ACTIVITY = 'POST_ACTIVTY';
 export const GET_DETAIL = 'GET_DETAIL';
 export const GET_NAME_ACTIVITY = 'GET_NAME_ACTIVITY';
+export const GET_ACTYVITY_BY_NAME = 'GET_ACTIVITY_BY_NAME';
 
 
 export const getAllCountries = ()=> async(dispatch)=>{
@@ -46,9 +47,15 @@ export const getActivities = ()=>async(dispatch)=>{
         payload: url.data,
     })
 }
-export const getNameActivity = (name)=>async(dispatch)=>{
-    return dispatch({
+export const getNameActivity = (name)=>{
+    return ({
         type: GET_NAME_ACTIVITY,
+        payload: name
+    })
+}
+export const getActivityByName = (name)=>{
+    return ({
+        type: GET_ACTYVITY_BY_NAME,
         payload: name
     })
 }

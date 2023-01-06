@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  getCountry, getCountryActivity, getNameActivity } from '../redux/actions';
+import {  getActivityByName, getCountry, getCountryActivity, getNameActivity } from '../redux/actions';
 import Error from './Error';
 import { useDispatch } from 'react-redux';
 import styles from './Countries.module.css';
@@ -27,12 +27,12 @@ const Input = styled.input`
     font-size: 1.2rem;
 `;
 
-const Search = ({mostrarPoblacion,setPaginaActual}) => {
+const Search = ({mostrarPoblacion,setPaginaActual,setActivity}) => {
 
     const dispatch = useDispatch();
     const [name, setName] = useState("");
     const [error, setError] = useState(false);
-    const [selec, setSelect] = useState("pais");
+    const [selec, setSelect] = useState("PorPais");
 
     const inputPais = (e)=>{
         e.preventDefault();
@@ -46,19 +46,28 @@ const Search = ({mostrarPoblacion,setPaginaActual}) => {
         }
         setError(false);
         setPaginaActual(1);
-        dispatch(selec === 'Actividad'?getNameActivity(name):getCountry(name));
+        if(selec === 'PorActividad'){
+            dispatch(getNameActivity(name))
+        }else if(selec === 'PorPais'){
+            dispatch(getCountry(name))
+        }else{
+            dispatch(getActivityByName(name));
+        }
+       
        
         mostrarPoblacion(false);
     }
     const handleSelect = (e)=>{
          setSelect(e.target.value);
+         setActivity(e.target.value);
     }
 
     return ( 
         <Contenedor>
             <div className={styles.search}>
                 <Select onChange={(e)=>handleSelect(e)} >
-                    <option value="Pais">Pais</option>
+                    <option value="PorPais">Por Pais</option>
+                    <option value="PorActividad">Por Actividad</option>
                     <option value="Actividad">Actividad</option>
                 </Select>
                 <Input

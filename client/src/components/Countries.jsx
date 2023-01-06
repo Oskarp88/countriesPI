@@ -29,7 +29,7 @@ const Countries = () => {
     
     const [paginaActual, setPaginaActual]=useState(1);
     const [paisesPorPag, setPaisesPorPag]=useState(10);
-    const [activity, setActivity]=useState("Pais");
+    const [activity, setActivity]=useState("PorPais");
     const [orden, setOrden] = useState('');
     const [poblacion, mostrarPoblacion] = useState(false);
    
@@ -127,17 +127,17 @@ const Countries = () => {
             setPaginaActual={setPaginaActual}/>
 
                                        
-                <Paginado 
+          { activity === 'Actividad'? null: <Paginado 
                 setPaginaActual={setPaginaActual}
-              paginaActual={paginaActual}
-              paisesPorPagina={paisesPorPag}
-              allcountries={allCountries.length}
-              paginado={paginado}
-              paisActual={paisActual.length}  />           
-            {/* { if(activity === 'Actividad')
+                paginaActual={paginaActual}
+                paisesPorPagina={paisesPorPag}
+                allcountries={allCountries.length}
+                paginado={paginado}
+                paisActual={paisActual.length}  /> }          
+            { activity === 'Actividad'?
             <div className={styles.cardActivity}>                  
                  <Activity />
-            </div> */}
+            </div>:
             <div className={styles.contry}>
                 {
                     paisActual?.map((c)=>{
@@ -155,7 +155,7 @@ const Countries = () => {
                     })
                     
                 }
-            </div>
+            </div>}
         </div>
      );
 }
