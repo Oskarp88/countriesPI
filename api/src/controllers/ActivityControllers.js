@@ -73,20 +73,7 @@ const activityCreate = async(req,res)=>{
         }
     
 }
-// const idPais = async(name,difficulty,duration,season,countryId)=>{
-//     try {
-//         const newAct = await Activity.create({
-//             name,
-//             difficulty,
-//             duration,
-//             season
-//         });
-//         await newAct.addCountries(countryId);
-        
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+
 
 module.exports={
     getAllActivity,

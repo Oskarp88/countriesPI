@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  getDetail } from '../redux/actions';
 import { Link, useParams} from 'react-router-dom';
-import  './Details.css';
+import  './details.css';
 import styled from 'styled-components';
 
 const Boton = styled.button`

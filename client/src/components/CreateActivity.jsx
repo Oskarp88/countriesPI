@@ -168,6 +168,7 @@ const CreateActivity = () => {
     
     
     const handleChange = (e)=>{
+
         
         setInput({
             ...input,
@@ -192,6 +193,10 @@ const CreateActivity = () => {
         let nameAct =activity.find(act=>act.name === input.name);
         if(nameAct!== undefined){
             return alert("El nombre de la actividad ya existe, por Favor escriba otro nombre");
+        }
+        
+        if(parseInt(input.duration) < 0){
+           return alert('El numero tiene que ser mayor a 0');
         }
         if(input.name.trim()===''||input.difficulty === 0 || input.duration === 0 
         || input.season.trim() === '' || input.countryId.length === 0){

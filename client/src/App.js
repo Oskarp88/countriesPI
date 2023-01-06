@@ -5,7 +5,8 @@ import Countries from './components/Countries';
 import Details from './components/Details';
 import CreateActivity from './components/CreateActivity';
 import NavBar from './views/NavBar';
-
+import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3001/';
 
 
 function App() {
